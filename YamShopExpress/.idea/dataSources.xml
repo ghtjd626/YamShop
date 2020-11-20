@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="BomYamShop@mysql.bomandyam.shop" uuid="0abde804-aa51-4b7c-9bd8-68ffd0208751">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql.bomandyam.shop:3306/BomYamShop</jdbc-url>
+    </data-source>
+  </component>
+</project>

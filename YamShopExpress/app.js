@@ -1,5 +1,8 @@
 let createError = require('http-errors');
 let express = require('express');
+const asyncify = require('express-asyncify');
+
+const app = asyncify(express());
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
@@ -18,7 +21,6 @@ let userTypeRouter = require('./routes/usertype');
 
 let tokenMiddleWare = require('./utils/tokenAuth');
 
-let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

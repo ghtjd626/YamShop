@@ -4,30 +4,7 @@ const pool = require('../utils/pool')
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto-promise');
 
-/**
- * @api {get} /user/:userSeq Request User information
- * @apiName GetUser
- * @apiGroup User
- *
- * @apiParam {Number} userSeq User's unique Seq.
- *
- *
- * @apiUse User
- */
 
-router.get('/:userSeq', async (req, res, next) => {
-  if(req.userInfo &&( req.userInfo.typeSeq === 1)) {
-    const {userSeq} = req.params
-    try {
-      const data = await pool.query('select * from User where userSeq = ?', [userSeq])
-      return res.json(data[0][0])
-    } catch (err) {
-      return res.status(500).json(err)
-    }
-  }else{
-    res.status(403).send({"message" : "Token error!"});
-  }
-})
 
 /**
  * @api {get} /user Request User information
@@ -73,6 +50,7 @@ async function pwBySalt(password, salt) {
     throw Error(err);
   }
 }
+
 router.post('/signin', async (req, res, next)=>{
   const {email, pw} = req.body;
   try{
@@ -104,7 +82,7 @@ router.post('/signin', async (req, res, next)=>{
 
 router.get('/token-verification', async (req, res, next)=>{
   if(req.userInfo){
-    res.send(req.userInfo);
+    res.status(200).send(req.userInfo);
   }else{
     res.status(403).send({"message": "Token Error!"});
   }
@@ -219,6 +197,31 @@ router.patch('/:userSeq', async (req, res, next) => {
   }
 })
 
+/**
+ * @api {get} /user/:userSeq Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} userSeq User's unique Seq.
+ *
+ *
+ * @apiUse User
+ */
+
+router.get('/:userSeq', async (req, res, next) => {
+  if(req.userInfo &&( req.userInfo.typeSeq === 1)) {
+    const {userSeq} = req.params
+    try {
+      const data = await pool.query('select * from User where userSeq = ?', [userSeq])
+      console.log(data[0][0]);
+      res.send(data[0][0])
+    } catch (err) {
+      res.status(500).json(err)
+    }
+  }else{
+    res.status(403).send({"message" : "Token error!"});
+  }
+})
 
 /**
  * @apiDefine User

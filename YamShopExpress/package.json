@@ -18,11 +18,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11",
-    "mysql2": "^2.2.5"
-  },
-  "devDependencies": {
+    "mysql2": "^2.2.5",
     "crypto-promise": "^2.1.0",
-    "express-asyncify": "^1.0.1",
     "jsonwebtoken": "^8.5.1"
   }
 }

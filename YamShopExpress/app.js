@@ -14,7 +14,7 @@ let fileRouter = require('./routes/file');
 let paymentRouter = require('./routes/payment');
 let petRouter = require('./routes/pet');
 let productRouter = require('./routes/product');
-let userTypeRouter = require('./routes/userType');
+let userTypeRouter = require('./routes/usertype');
 
 let app = express();
 

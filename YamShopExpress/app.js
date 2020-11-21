@@ -5,7 +5,7 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/user');
+let userRouter = require('./routes/user');
 let boardRouter = require('./routes/board');
 let cartRouter = require('./routes/cart');
 let categoryRouter = require('./routes/category');
@@ -15,6 +15,8 @@ let paymentRouter = require('./routes/payment');
 let petRouter = require('./routes/pet');
 let productRouter = require('./routes/product');
 let userTypeRouter = require('./routes/usertype');
+
+let tokenMiddleWare = require('./utils/tokenAuth');
 
 let app = express();
 
@@ -27,9 +29,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(tokenMiddleWare);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 app.use('/board', boardRouter);
 app.use('/cart',cartRouter);
 app.use('/category',categoryRouter);

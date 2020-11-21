@@ -27,6 +27,9 @@ router.get('/:boardSeq', async (req, res, next) => {
  * @apiName GetBoardList
  * @apiGroup Board
  *
+ * @apiParam {Number} page Current page number
+ * @apiParam {Number} size Page size
+ *
  * @apiUse BoardList
  */
 

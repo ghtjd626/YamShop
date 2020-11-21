@@ -38,7 +38,7 @@ app.use('/file',fileRouter);
 app.use('/payment',paymentRouter);
 app.use('/pet',petRouter);
 app.use('/product',productRouter);
-app.use('/userType',userTypeRouter);
+app.use('/usertype',userTypeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

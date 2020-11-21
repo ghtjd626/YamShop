@@ -56,6 +56,26 @@
     "title": "Request Board information",
     "name": "GetBoardList",
     "group": "Board",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Current page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "size",
+            "description": "<p>Page size</p>"
+          }
+        ]
+      }
+    },
     "version": "0.0.0",
     "filename": "routes/board.js",
     "groupTitle": "",
@@ -102,6 +122,251 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n  \"boardSeq\" : 0,\n  \"boardName\" : \"Product\",\n  \"readLevel\" : 0,\n  \"writeLevel\" : 2\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/user/:userSeq",
+    "title": "Delete user",
+    "name": "Delete_user",
+    "group": "User",
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"userSeq\" : 0,\n  \"email\" : \"haemin001212@gmail.com\",\n  \"pw\" : wqewfosieoajfhwejf@fweali3j,\n  \"name\" : \"정해민\",\n  \"phone\" : 01098810664,\n  \"registerTime\" : 1605929904,\n  \"accessToken\" : wqewfosieoajfhwejf@fweali3jwqewfosieoajfhwejf@fweali3j,\n  \"gender\" : 0,\n  \"typeSeq\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/user/:userSeq",
+    "title": "Request User information",
+    "name": "GetUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "userSeq",
+            "description": "<p>User's unique Seq.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"userSeq\" : 0,\n  \"email\" : \"haemin001212@gmail.com\",\n  \"pw\" : wqewfosieoajfhwejf@fweali3j,\n  \"name\" : \"정해민\",\n  \"phone\" : 01098810664,\n  \"registerTime\" : 1605929904,\n  \"accessToken\" : wqewfosieoajfhwejf@fweali3jwqewfosieoajfhwejf@fweali3j,\n  \"gender\" : 0,\n  \"typeSeq\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/user",
+    "title": "Request User information",
+    "name": "GetUserList",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Current page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "size",
+            "description": "<p>Page size</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"userSeq\" : 0,\n  \"email\" : \"haemin001212@gmail.com\",\n  \"pw\" : wqewfosieoajfhwejf@fweali3j,\n  \"name\" : \"정해민\",\n  \"phone\" : 01098810664,\n  \"registerTime\" : 1605929904,\n  \"accessToken\" : wqewfosieoajfhwejf@fweali3jwqewfosieoajfhwejf@fweali3j,\n  \"gender\" : 0,\n  \"typeSeq\" : 0\n},\n{\n  \"userSeq\" : 0,\n  \"email\" : \"haemin001212@gmail.com\",\n  \"pw\" : wqewfosieoajfhwejf@fweali3j,\n  \"name\" : \"정해민\",\n  \"phone\" : 01098810664,\n  \"registerTime\" : 1605929904,\n  \"accessToken\" : wqewfosieoajfhwejf@fweali3jwqewfosieoajfhwejf@fweali3j,\n  \"gender\" : 0,\n  \"typeSeq\" : 0\n}\n]",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "patch",
+    "url": "/user/:userSeq",
+    "title": "Modify user",
+    "name": "Modify_user",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "userSeq",
+            "description": "<p>사용자 번</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>이메일</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pw",
+            "description": "<p>비밀 번호</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>이름</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>휴대폰 번호</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": "<p>접근 액세스 토큰</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>성별 남성 : 0, 여성 : 1</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "typeSeq",
+            "description": "<p>사용자 타입</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"userSeq\" : 0,\n  \"email\" : \"haemin001212@gmail.com\",\n  \"pw\" : wqewfosieoajfhwejf@fweali3j,\n  \"name\" : \"정해민\",\n  \"phone\" : 01098810664,\n  \"registerTime\" : 1605929904,\n  \"accessToken\" : wqewfosieoajfhwejf@fweali3jwqewfosieoajfhwejf@fweali3j,\n  \"gender\" : 0,\n  \"typeSeq\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/user",
+    "title": "Add User",
+    "name": "Post_User",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>이메일</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "pw",
+            "description": "<p>비밀번호</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>이름</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>휴대폰 번호</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": "<p>접근 액세스 토큰</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>성별 남성 : 0, 여성 : 1</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "typeSeq",
+            "description": "<p>사용자 타입</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"userSeq\" : 0,\n  \"email\" : \"haemin001212@gmail.com\",\n  \"pw\" : wqewfosieoajfhwejf@fweali3j,\n  \"name\" : \"정해민\",\n  \"phone\" : 01098810664,\n  \"registerTime\" : 1605929904,\n  \"accessToken\" : wqewfosieoajfhwejf@fweali3jwqewfosieoajfhwejf@fweali3j,\n  \"gender\" : 0,\n  \"typeSeq\" : 0\n}",
           "type": "json"
         }
       ]

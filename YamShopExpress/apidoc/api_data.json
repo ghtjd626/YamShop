@@ -128,6 +128,194 @@
     }
   },
   {
+    "type": "delete",
+    "url": "/category/:categorySeq",
+    "title": "Delete board",
+    "name": "Delete_category",
+    "group": "Category",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Only admin User access only",
+        "description": "<p>Only admin can access.</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/category.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/category/:categorySeq",
+    "title": "Request Category information",
+    "name": "GetCategory",
+    "group": "Category",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "categorySeq",
+            "description": "<p>Category's unique Seq.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/category.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/category",
+    "title": "Request category information",
+    "name": "GetCategoryList",
+    "group": "Category",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Current page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "size",
+            "description": "<p>Page size</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/category.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 0\n},\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 1\n}\n]",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "patch",
+    "url": "/category/:categorySeq",
+    "title": "Modify Category",
+    "name": "Modify_category",
+    "group": "Category",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Only admin User access only",
+        "description": "<p>Only admin can access.</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/category.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/category",
+    "title": "Add Category",
+    "name": "Post_Category",
+    "group": "Category",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Only admin User access only",
+        "description": "<p>Only admin can access.</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/category.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "get",
     "url": "/user/token-verification",
     "title": "Check accessToken",

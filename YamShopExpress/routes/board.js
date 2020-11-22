@@ -3,26 +3,6 @@ let router = express.Router()
 const pool = require('../utils/pool')
 
 /**
- * @api {get} /board/:boardSeq Request Board information
- * @apiName GetBoard
- * @apiGroup Board
- *
- * @apiParam {Number} boardSeq Board's unique Seq.
- *
- * @apiUse Board
- */
-
-router.get('/:boardSeq', async (req, res, next) => {
-    const { boardSeq } = req.params
-    try {
-        const data = await pool.query('select * from Board where boardSeq = ?', [boardSeq])
-        return res.json(data[0])
-    } catch (err) {
-        return res.status(500).json(err)
-    }
-})
-
-/**
  * @api {get} /board Request Board information
  * @apiName GetBoardList
  * @apiGroup Board
@@ -92,6 +72,27 @@ router.delete('/:boardSeq', async (req, res, next) => {
     const { boardSeq } = req.params
     try {
         const data = await pool.query('delete from Board where boardSeq = ?', [boardSeq])
+        return res.json(data[0])
+    } catch (err) {
+        return res.status(500).json(err)
+    }
+})
+
+
+/**
+ * @api {get} /board/:boardSeq Request Board information
+ * @apiName GetBoard
+ * @apiGroup Board
+ *
+ * @apiParam {Number} boardSeq Board's unique Seq.
+ *
+ * @apiUse Board
+ */
+
+router.get('/:boardSeq', async (req, res, next) => {
+    const { boardSeq } = req.params
+    try {
+        const data = await pool.query('select * from Board where boardSeq = ?', [boardSeq])
         return res.json(data[0])
     } catch (err) {
         return res.status(500).json(err)

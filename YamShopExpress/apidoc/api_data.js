@@ -129,6 +129,139 @@ define({ "api": [
   },
   {
     "type": "delete",
+    "url": "/cart/:cartSeq",
+    "title": "Delete Cart",
+    "name": "Delete_Cart",
+    "group": "Cart",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 접근 토큰</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "cartSeq",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/cart.js",
+    "groupTitle": ""
+  },
+  {
+    "type": "get",
+    "url": "/cart",
+    "title": "장바구니 정보요청",
+    "name": "GetCartList",
+    "group": "Cart",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Current page number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "size",
+            "description": "<p>Page size</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/cart.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"cartSeq\" : 0,\n  \"userSeq\" : 2,\n  \"prodSeq\" : 0\n},\n{\n  \"cartSeq\" : 0,\n  \"userSeq\" : 2,\n  \"prodSeq\" : 0\n}\n]",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/cart",
+    "title": "장바구니 추가",
+    "name": "Post_Cart",
+    "group": "Cart",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 접근 토큰</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "prodSeq",
+            "description": "<p>상품 시퀀스 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/cart.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"cartSeq\" : 0,\n  \"userSeq\" : 2,\n  \"prodSeq\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
     "url": "/category/:categorySeq",
     "title": "Delete board",
     "name": "Delete_category",
@@ -310,6 +443,256 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n  \"categorySeq\" : 0,\n  \"categoryName\" : \"잡화\",\n  \"parentCategory\" : 0\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/delivery/:prodSeq/:deliverySeq",
+    "title": "Delete Delivery",
+    "name": "Delete_Delivery",
+    "group": "Delivery",
+    "version": "0.0.0",
+    "filename": "routes/delivery.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"deliverySeq\" : 0,\n  \"deliveryName\" : \"오늘 바로 배송 가능\",\n  \"prodSeq\" : 0,\n  \"deliveryPrice\" : 4000\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/delivery/:prodSeq",
+    "title": "배송 정보 요청",
+    "name": "GetDeliveryList",
+    "group": "Delivery",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "prodSeq",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/delivery.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"deliverySeq\" : 0,\n  \"deliveryName\" : \"오늘 바로 배송 가능\",\n  \"prodSeq\" : 0,\n  \"deliveryPrice\" : 4000\n},\n{\n  \"deliverySeq\" : 0,\n  \"deliveryName\" : \"오늘 바로 배송 가능\",\n  \"prodSeq\" : 0,\n  \"deliveryPrice\" : 4000\n}\n]",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/delivery/:prodSeq",
+    "title": "배송 정보 등록",
+    "name": "Post_Delivery",
+    "group": "Delivery",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 접근 토큰</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "prodSeq",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "deliveryName",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "deliveryPrice",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Only admin User access only",
+        "description": "<p>Only admin can access.</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "routes/delivery.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"deliverySeq\" : 0,\n  \"deliveryName\" : \"오늘 바로 배송 가능\",\n  \"prodSeq\" : 0,\n  \"deliveryPrice\" : 4000\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "patch",
+    "url": "/delivery/:prodSeq/:deliverySeq",
+    "title": "배송 정보 수정",
+    "name": "배송정보_수정",
+    "group": "Delivery",
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Only admin User access only",
+        "description": "<p>Only admin can access.</p>"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>유저 접근 토큰</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/delivery.js",
+    "groupTitle": ""
+  },
+  {
+    "type": "get",
+    "url": "/file",
+    "title": "파일 정보 요청",
+    "name": "GetFileList",
+    "group": "File",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "boardSeq",
+            "description": "<p>게시판 번호</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "postSeq",
+            "description": "<p>게시글 번호</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/file.js",
+    "groupTitle": "",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"fileSeq\" : 0,\n  \"fileUrl\" : \"https://s3-ap-northest...\",\n  \"boardSeq\" : 0,\n  \"uploaderSeq\" : 1,\n  \"postSeq\" : 3\n},\n{\n  \"fileSeq\" : 0,\n  \"fileUrl\" : \"https://s3-ap-northest...\",\n  \"boardSeq\" : 0,\n  \"uploaderSeq\" : 1,\n  \"postSeq\" : 3\n}\n]",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/payment",
+    "title": "결제내역 요청",
+    "name": "GetPaymentList",
+    "group": "Payment",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 접근 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/payment.js",
+    "groupTitle": "Payment",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"paymentSeq\" : 1,\n  \"prodSeq\" : 1,\n  \"deliveryState\": 0,\n  \"userSeq\" : 1\n},\n{\n  \"paymentSeq\" : 1,\n  \"prodSeq\" : 1,\n  \"deliveryState\": 0,\n  \"userSeq\" : 1\n}\n]",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/pet",
+    "title": "반려동물 정보 요청",
+    "name": "GetPetInformation",
+    "group": "Pet",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>사용자 접근 액세스 토큰</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/pet.js",
+    "groupTitle": "Pet",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n{\n  \"petSeq\" : 1,\n  \"userSeq\" : 1,\n  \"petInfo\": \"~~~\"\n},\n{\n  \"petSeq\" : 1,\n  \"userSeq\" : 1,\n  \"petInfo\": \"~~~\"\n},\n{\n  \"petSeq\" : 1,\n  \"userSeq\" : 1,\n  \"petInfo\": \"~~~\"\n}\n]",
           "type": "json"
         }
       ]
